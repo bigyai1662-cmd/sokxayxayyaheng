@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu bản thân - Chindavong Sokxayxayyaheng</title>
+    
+    <!-- PHẦN CSS ĐỊNH DẠNG GIAO DIỆN (Embedded CSS) -->
+    <style>
+        /* 1. Thiết lập chung cho toàn trang */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Cuộn mượt khi bấm vào menu */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 2. Thanh điều hướng (Header / Navbar) */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #1e3a8a; /* Màu xanh Navy chủ đạo */
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #475569;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1e3a8a;
+        }
+
+        /* 3. Phần mở đầu (Hero Banner) */
+        .hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            padding: 60px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hero-card {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Khung ảnh đại diện hình tròn */
+        .avatar-box {
+            flex-shrink: 0;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background-color: #dbeafe;
+            border: 4px solid #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text h1 {
+            font-size: 1.9rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: #1e3a8a;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .hero-text p {
+            color: #475569;
+            margin-bottom: 22px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #1e3a8a;
+            color: #ffffff;
+            padding: 11px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #172554;
+        }
+
+        /* 4. Định dạng chung cho các Section */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-gray {
+            background-color: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #1e3a8a;
+            margin-bottom: 28px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dbeafe;
+            display: inline-block;
+        }
+
+        /* 5. Phần Giới thiệu bản thân (About Me - 2 cột) */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 26px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .info-card h3 {
+            color: #0f172a;
+            margin-bottom: 14px;
+            font-size: 1.15rem;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* 6. Phần Kỹ năng (Skills) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .skill-group {
+            background: #ffffff;
+            padding: 26px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-group h3 {
+            color: #0f172a;
+            margin-bottom: 16px;
+            font-size: 1.15rem;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background-color: #eff6ff;
+            color: #1e3a8a;
+            border: 1px solid #bfdbfe;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* 7. Phần Dự án & Bài tập (Projects - 3 cột) */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            background-color: #dbeafe;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .project-card h3 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            font-size: 0.92rem;
+            color: #475569;
+        }
+
+        /* 8. Phần Liên hệ (Contact) */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-info p {
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: #1e293b;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1e3a8a;
+        }
+
+        /* Thông báo phản hồi khi gửi form */
+        #form-status {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background-color: #dcfce7;
+            color: #166534;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: none; /* Ẩn mặc định, hiện khi bấm gửi */
+        }
+
+        /* 9. Chân trang (Footer) */
+        footer {
+            background-color: #1e3a8a;
+            color: #ffffff;
+            text-align: center;
+            padding: 22px 0;
+            font-size: 0.9rem;
+        }
+
+        /* 10. Responsive cho màn hình điện thoại (Mobile) */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .hero-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 28px 20px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== 1. HEADER & MENU ==================== -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">Chindavong Sokxayxayyaheng</a>
+            <ul class="nav-links">
+                <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                <li><a href="#ky-nang">Kỹ năng</a></li>
+                <li><a href="#du-an">Dự án</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO BANNER ==================== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-card">
+                <!-- 
+                    HƯỚNG DẪN ĐỔI ẢNH ĐẠI DIỆN:
+                    Bạn chỉ cần đặt file ảnh thật của mình cùng thư mục với file index.html, 
+                    đặt tên là "avatar.jpg" là ảnh sẽ tự động hiển thị thay cho hình mặc định bên dưới.
+                -->
+                <div class="avatar-box">
+                    <img src="hrp .jpeg" 
+                         alt="Ảnh đại diện Chindavong" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <!-- Hình minh họa SVG mặc định nếu chưa có file avatar.jpg -->
+                    <svg style="display:none; width: 90px; height: 90px; fill: #1e3a8a;" viewBox="0 0 24 24">
+                        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+                    </svg>
+                </div>
+
+                <div class="hero-text">
+                    <h1>Xin chào! Tôi là Chindavong Sokxayxayyaheng</h1>
+                    <div class="hero-subtitle">Sinh viên Công nghệ Thông tin - Khóa K66, Đại học Vinh</div>
+                    <p>
+                        Tôi là sinh viên yêu thích thiết kế giao diện người dùng (UI/UX trên Figma) và đang học tập, rèn luyện kỹ năng phát triển Website. Rất vui được làm quen và học hỏi cùng thầy cô và các bạn trong môn Lập trình Web.
+                    </p>
+                    <a href="#lien-he" class="btn-primary">Liên hệ với tôi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. GIỚI THIỆU BẢN THÂN ==================== -->
+    <section id="gioi-thieu">
+        <div class="container">
+            <h2 class="section-title">Giới thiệu bản thân</h2>
+            <div class="about-grid">
+                <!-- Cột 1: Thông tin cá nhân -->
+                <div class="info-card">
+                    <h3>Thông tin cơ bản</h3>
+                    <ul class="info-list">
+                        <li><strong>Họ và tên:</strong> Chindavong Sokxayxayyaheng</li>
+                        <li><strong>Ngành học:</strong> Công nghệ Thông tin (Khóa K66)</li>
+                        <li><strong>Trường:</strong> Đại học Vinh (Vinh University)</li>
+                        <li><strong>Nơi ở hiện tại:</strong> TP. Vinh, Nghệ An</li>
+                    </ul>
+                </div>
+
+                <!-- Cột 2: Sở thích & Mục tiêu -->
+                <div class="info-card">
+                    <h3>Sở thích & Định hướng</h3>
+                    <ul class="info-list">
+                        <li><strong>Sở thích:</strong> Thiết kế giao diện web, chơi đàn guitar, đá bóng</li>
+                        <li><strong>Thế mạnh:</strong> Thiết kế bố cục slide, tạo mẫu giao diện trên Figma</li>
+                        <li><strong>Mục tiêu môn học:</strong> Nắm vững HTML, CSS, JavaScript cơ bản để tự xây dựng được trang web hoàn chỉnh.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. KỸ NĂNG ==================== -->
+    <section id="ky-nang" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Kỹ năng</h2>
+            <div class="skills-grid">
+                <!-- Nhóm 1: Thiết kế & Công cụ -->
+                <div class="skill-group">
+                    <h3>Thiết kế & Công cụ văn phòng</h3>
+                    <div class="badge-container">
+                        <span class="skill-badge">Figma (UI Design)</span>
+                        <span class="skill-badge">Canva</span>
+                        <span class="skill-badge">PowerPoint</span>
+                        <span class="skill-badge">Word / Excel</span>
+                    </div>
+                </div>
+
+                <!-- Nhóm 2: Lập trình cơ bản -->
+                <div class="skill-group">
+                    <h3>Lập trình cơ bản</h3>
+                    <div class="badge-container">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">C++</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. DỰ ÁN & BÀI TẬP ==================== -->
+    <section id="du-an">
+        <div class="container">
+            <h2 class="section-title">Dự án & Bài tập</h2>
+            <div class="projects-grid">
+                <!-- Dự án 1 -->
+                <div class="project-card">
+                    <div>
+                        <span class="project-tag">Figma & HTML/CSS</span>
+                        <h3>Website Nhà hàng Mâm Xưa</h3>
+                        <p>Thiết kế giao diện trang giới thiệu thực đơn và đặt bàn cho nhà hàng ẩm thực truyền thống Việt Nam với tông màu ấm cúng.</p>
+                    </div>
+                </div>
+
+                <!-- Dự án 2 -->
+                <div class="project-card">
+                    <div>
+                        <span class="project-tag">Dự án nhóm C++</span>
+                        <h3>Hệ thống Quản lý Phòng khám</h3>
+                        <p>Xây dựng chương trình quản lý thông tin bệnh nhân, bác sĩ và lịch khám trên màn hình Console bằng ngôn ngữ lập trình C++.</p>
+                    </div>
+                </div>
+
+                <!-- Dự án 3 -->
+                <div class="project-card">
+                    <div>
+                        <span class="project-tag">Phân tích & Thuyết trình</span>
+                        <h3>Báo cáo Thuật toán Betweenness Centrality</h3>
+                        <p>Tìm hiểu lý thuyết đồ thị, phân tích độ trung gian của các đỉnh trong mạng lưới và thiết kế slide minh họa trực quan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. LIÊN HỆ ==================== -->
+    <section id="lien-he" class="section-gray">
+        <div class="container">
+            <h2 class="section-title">Liên hệ</h2>
+            <div class="contact-grid">
+                <!-- Thông tin liên lạc -->
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 14px; color: #0f172a;">Thông tin kết nối</h3>
+                    <p>Nếu thầy cô hoặc các bạn có góp ý cho bài tập của tôi, vui lòng liên hệ qua các kênh sau:</p>
+                    <p><strong>Email:</strong> <a href="mailto:bigyai1662@gmail.com">bigyai1662@gmail.com</a></p>
+                    <p><strong>Facebook:</strong> <a href="https://facebook.com" target="_blank">facebook.com/Sokxayxayyaheng chindavong</a></p>
+                    <p><strong>Zalo:</strong> 0334731098 (TP. Vinh, Nghệ An)</p>
+                </div>
+
+                <!-- Form gửi lời nhắn đơn giản -->
+                <div>
+                    <form id="contactForm" onsubmit="guiTinNhan(event)">
+                        <div class="form-group">
+                            <label for="name">Họ và tên</label>
+                            <input type="text" id="name" placeholder="Nhập họ tên của bạn" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Nhập địa chỉ email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Lời nhắn</label>
+                            <textarea id="message" rows="3" placeholder="Nhập nội dung lời nhắn..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Gửi lời nhắn</button>
+                        <div id="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 7. FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Chindavong Sokxayxayyaheng - Bài tập cá nhân môn Lập trình Web</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT ĐƠN GIẢN XỬ LÝ FORM LIÊN HỆ -->
+    <script>
+        function guiTinNhan(event) {
+            // Ngăn trang web tải lại khi bấm nút Gửi
+            event.preventDefault();
+
+            // Lấy tên người gửi
+            const tenNguoiGui = document.getElementById('name').value;
+            const hopThongBao = document.getElementById('form-status');
+
+            // Hiển thị thông báo cảm ơn ngay trên trang
+            hopThongBao.textContent = "Cảm ơn " + tenNguoiGui + "! Tin nhắn của bạn đã được ghi nhận.";
+            hopThongBao.style.display = "block";
+
+            // Xóa trống các ô nhập sau khi gửi
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+
+</body>
+</html>
